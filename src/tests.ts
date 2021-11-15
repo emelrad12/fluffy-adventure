@@ -1,5 +1,5 @@
 import {UserOrder} from "./userOrder";
-import {Discounts} from "./discountApplicator";
+import {Discounts} from "./discounts";
 import {Prices} from "./prices";
 //Simplified testing suite
 import assert from 'assert/strict';
@@ -37,6 +37,40 @@ let testPriceApplication = () => {
     assert.deepEqual(finalPrice, 200 + 2 * 100 + 30)
 }
 
+// In theory you are not supposed to use this outside testing
+let convertArrayToPrice = (data: Array<string>): number => {
+    let order = new UserOrder()
+    order.applyFromArray(data)
+    let testDiscounts = new Discounts()
+    let discountedOrder = testDiscounts.applyDiscounts(order)
+    let testPrices = new Prices()
+    let finalPrice = testPrices.applyPrices(discountedOrder)
+    return finalPrice
+}
+
+let garbageInputTests = () => {
+    try {
+        // @ts-ignore
+        convertArrayToPrice("garbage string")
+        assert.fail()
+    } catch (e) {
+    }
+    try {
+        // @ts-ignore
+        convertArrayToPrice(["001", "001", "8h9nu4tt3"])
+        assert.fail()
+    } catch (e) {
+    }
+    try {
+        // @ts-ignore
+        convertArrayToPrice(["001", "001", "055"])
+        assert.fail()
+    } catch (e) {
+    }
+}
+
 testUserOrders()
 testApplyDiscounts()
 testPriceApplication()
+garbageInputTests()
+console.log("Passed all tests")
