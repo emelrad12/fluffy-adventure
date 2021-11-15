@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "nodemon"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,13 @@
   "bugs": {
     "url": "https://github.com/emelrad12/fluffy-adventure/issues"
   },
-  "homepage": "https://github.com/emelrad12/fluffy-adventure#readme"
+  "homepage": "https://github.com/emelrad12/fluffy-adventure#readme",
+  "devDependencies": {
+    "@types/node": "^16.11.7",
+    "typescript": "^4.4.4"
+  },
+  "dependencies": {
+    "nodemon": "^2.0.15",
+    "ts-node": "^10.4.0"
+  }
 }
