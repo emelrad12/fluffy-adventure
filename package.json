@@ -1,0 +1,19 @@
+{
+  "name": "fluffy-adventure",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emelrad12/fluffy-adventure.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/emelrad12/fluffy-adventure/issues"
+  },
+  "homepage": "https://github.com/emelrad12/fluffy-adventure#readme"
+}
