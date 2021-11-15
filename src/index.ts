@@ -1,9 +1,28 @@
 import express from "express"
+import {UserOrder} from "./userOrder";
+import {Discounts} from "./discountApplicator";
+import {Prices} from "./prices";
+
 const app = express()
 const port = 8081
+app.use(express.json())
 
 app.post('/checkout', function (req, res) {
-    res.send('Fancy data')
+    try {
+        let body = req.body
+        let order = new UserOrder()
+        order.applyFromArray(body)
+        let testDiscounts = new Discounts()
+        let discountedOrder = testDiscounts.applyDiscounts(order)
+        let testPrices = new Prices()
+        let finalPrice = testPrices.applyPrices(discountedOrder)
+        res.send({price: finalPrice, error: null})
+    } catch (e) {
+        res.status(400);
+        console.log(e)
+        res.send({price: -1, error: e})
+    }
+
 })
 
 app.listen(port, () => {
