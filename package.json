@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon"
+    "start": "nodemon",
+    "test": "ts-node .\\src\\tests.ts"
   },
   "repository": {
     "type": "git",
