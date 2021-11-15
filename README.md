@@ -1,12 +1,24 @@
 # fluffy-adventure
 
 # Install
-
-Simply run npm i
+Simply clone and run npm i
 
 # Start
 
 Run npm start, that will automatically start nodemon and reload the server on change
+
+# Use
+
+To use the api, make a post request at http://localhost:8080/checkout
+The data must be a json array of product ids ex:
+
+[
+"001",
+"001",
+"001",
+"001",
+"001"
+]
 
 # Testing
 
