@@ -14,10 +14,10 @@ The data must be a json array of product ids ex:
 
 [
 "001",
+"002",
 "001",
-"001",
-"001",
-"001"
+"004",
+"003"
 ]
 
 # Testing
