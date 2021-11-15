@@ -1,5 +1,6 @@
 // including discounted items
 import {UserOrder} from "./userOrder";
+import assert from "assert/strict";
 
 export class Prices {
     data: Record<string, number>
@@ -19,7 +20,9 @@ export class Prices {
         return Object.keys(order.items).reduce((prev, productName) => {
             let productCount = order.items[productName]
             let pricePerProduct = this.data[productName]
-            return prev + productCount * pricePerProduct
+            assert(pricePerProduct, `No price for product:${productName}`)
+            let finalPrice = prev + productCount * pricePerProduct
+            return finalPrice
         }, 0)
     }
 }
