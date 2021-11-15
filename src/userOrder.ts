@@ -7,7 +7,7 @@ export class UserOrder {
 
     applyFromArray(data: Array<string>) {
         data.forEach((item) => {
-            if (this.items[item]) this.items[item] = 0
+            if (!this.items[item]) this.items[item] = 0
             this.items[item]++
         })
     }
