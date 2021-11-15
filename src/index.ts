@@ -1,10 +1,10 @@
 import express from "express"
 import {UserOrder} from "./userOrder";
-import {Discounts} from "./discountApplicator";
+import {Discounts} from "./discounts";
 import {Prices} from "./prices";
 
 const app = express()
-const port = 8081
+const port = 8080
 app.use(express.json())
 
 app.post('/checkout', function (req, res) {
